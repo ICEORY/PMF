@@ -1,4 +1,4 @@
-# Perception-aware Multi-sensor Fusion for 3D LiDAR Semantic Segmentation
+# Perception-aware Multi-sensor Fusion for 3D LiDAR Semantic Segmentation (ICCV 2021)
 
 
 We will release our code soon ... 
@@ -12,3 +12,4 @@ We will release our code soon ...
   year={2021}
 }
 ```
+
