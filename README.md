@@ -1,4 +1,4 @@
-# Perception-aware Multi-sensor Fusion for 3D LiDAR Semantic Segmentation (ICCV 2021)
+# Perception-Aware Multi-Sensor Fusion for 3D LiDAR Semantic Segmentation (ICCV 2021)
 
 We will release our code soon ... 
 
@@ -74,9 +74,9 @@ nuScenes-lidarseg evaluation for test
 
 
 
-### SensatUrban (ICCV2021)
+### SensatUrban ([ICCV2021 Competition](https://competitions.codalab.org/competitions/31519#results))
 
-#### Settings
+#### PMF with ResNet-50 (mIoU 62.5)
 
 - Based on our settings on nuScenes
 - Use bird-view projection to generate point cloud feature maps
@@ -84,15 +84,25 @@ nuScenes-lidarseg evaluation for test
 - No finetuning on val-split
 - No extra post-processing (e.g., KNN or test time augmentation techniques)
 
-#### PMF with ResNet-50
-
 ![image-20210802095416726](assets/image-20210802095416726.png)
 
+#### PMF with ResNet-101 and wider SalsaNext (Final Results, mIoU 66.2)
+
+- Based on our settings on nuScenes
+- Larger model: ResNet-101 + SalsaNext (1.5x wider)
+- Use bird-view projection to generate point cloud feature maps
+- No ImageNet pretrained (Required by the competition)
+- TrainVal dataset finetuning
+- Post-processing: KNN and Test Time Augmentation (TTA)
+
+![image-20210924092220686](assets/image-20210924092220686.png)
+
 ## Citation
+
 ```
 @article{zhuang2021perception,
   title={Perception-aware Multi-sensor Fusion for 3D LiDAR Semantic Segmentation},
-  author={Zhuang, Zhuangwei and Li, Rong and Li, Yuanqing and Jia, Kui and Wang, Qicheng and Tan, Mingkui},
+  author={Zhuang, Zhuangwei and Li, Rong and Jia, Kui and Wang, Qicheng and Li, Yuanqing and Tan, Mingkui},
   journal={arXiv preprint arXiv:2106.15277},
   year={2021}
 }
