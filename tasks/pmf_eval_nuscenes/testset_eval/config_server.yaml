@@ -1,0 +1,15 @@
+# common config
+save_path: "../../experiments/nuScenes-Test"
+experiment_id: "PMF-resnet50-Salsanext-val-2021080201"
+gpu: "0"
+
+# data conifg
+is_debug: false
+dataset: "nuScenes"
+data_root: "/mnt/cephfs/dataset/pointclouds/nuscenes"
+n_classes: 17
+has_label: true
+
+# cehckpoint model
+main_pred_folder: "/home/iceory/iceory/poincloudProcessor/experiments/PMF-nus-better/Rebuttal/log_NuScenes_PMF_bs24-lr0.0001_attention_cat_tau0.3wkl0.5wlov1_PV-resnet50_2021073001/Eval-PV_NuScenes_PMF__2021080101"
+sub_pred_folder: "/home/iceory/iceory/poincloudProcessor/experiments/SalsaNext-nus/log_NuScenes_SalsaNext_bs24_ep150_lr0.001_baseline_2021071403/Eval-SV_NuScenes_SalsaNext_KNN-13_2021071501"

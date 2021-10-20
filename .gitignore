@@ -1,0 +1,9 @@
+*.onnx
+.idea
+.vscode
+.pyc
+__pycache__
+log_*
+*.pth
+experiments/
+build/

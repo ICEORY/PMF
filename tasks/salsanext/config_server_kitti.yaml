@@ -1,0 +1,91 @@
+# common config
+save_path: "../../experiments/PMF-SemanticKitti/"
+seed: 1
+gpu: "0,1" 
+print_frequency: "1"
+n_threads: 4
+experiment_id: "baseline-timestamp"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 150
+batch_size: 4
+lr: 0.001
+momentum: 0.9
+warmup_epochs: 1
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "SemanticKitti"
+n_classes: 20 # 19+1(ignored)
+data_root: "/path/to/semantic-kitti-fov/sequences"
+
+# model config
+net_type: "SalsaNext"
+
+# cehckpoint model
+checkpoint: null 
+pretrained_model: null
+
+### data augmentation config ---------------------
+augmentation:
+  # flip
+  p_flipx: 0.
+  p_flipy: 0.5
+
+  # translation
+  p_transx: 0.5
+  trans_xmin: -5
+  trans_xmax: 5
+  p_transy: 0.5
+  trans_ymin: -3
+  trans_ymax: 3
+  p_transz: 0.5
+  trans_zmin: -1
+  trans_zmax: 0.
+
+  # rotation
+  p_rot_roll: 0.5
+  rot_rollmin: -5
+  rot_rollmax: 5
+  p_rot_pitch: 0.5
+  rot_pitchmin: -5
+  rot_pitchmax: 5
+  p_rot_yaw: 0.5
+  rot_yawmin: 5
+  rot_yawmax: -5
+  # img jitter
+  img_jitter: [0.4, 0.4, 0.4]
+
+sensor:
+  name: "HDL64"
+  type: "spherical"
+  proj_h: 64
+  proj_w: 512
+  fov_up: 3.
+  fov_down: -25.
+  fov_left: -45
+  fov_right: 45
+  img_mean:
+    - 12.12
+    - 10.88
+    - 0.23
+    - -1.04
+    - 0.21
+  img_stds:
+    - 12.32
+    - 11.47
+    - 6.91
+    - 0.86
+    - 0.16
+  
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0

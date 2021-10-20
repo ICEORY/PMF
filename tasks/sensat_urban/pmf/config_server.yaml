@@ -1,0 +1,39 @@
+# common config
+save_path: "../../../experiments/PMF-sensat/"
+seed: 1
+gpu: "0,1,2,3"
+print_frequency: 2
+n_threads: 4
+experiment_id: "baseline-timestamp"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 150
+batch_size: [4, 4]
+lr: 0.001
+warmup_epochs: 1
+momentum: 0.9
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "SensatUrban"
+n_classes: 14 # 13+1(ignored)
+data_root: "/path/to/sensat-urban/"
+
+# model config
+base_channels: 48
+img_backbone: "resnet101"
+imagenet_pretrained: true
+
+# cehckpoint model
+checkpoint: null 
+pretrained_model: null
+
+img_h: 320
+img_w: 320
+n_samples_split: 1000
+
+feature_mean: [27.47, 26.90, 27.22, 0.63, 0.81, 0, 0, 0]
+feature_std: [18.43, 18.00, 18.21, 0.40, 0.39, 255.0, 255.0, 255.0]

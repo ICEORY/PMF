@@ -1,0 +1,1 @@
+python -m torch.distributed.launch --nproc_per_node=4 --master_port=63443 --use_env main.py config_server.yaml

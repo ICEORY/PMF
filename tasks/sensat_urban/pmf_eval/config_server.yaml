@@ -1,0 +1,43 @@
+# common config
+seed: 1
+gpu: "0"
+print_frequency: "3"
+n_threads: 4
+experiment_id: "baseline-timestamp"
+
+# data conifg
+val_only: false
+has_label: false
+is_debug: true
+
+dataset: "SensatUrban"
+n_classes: 14 # 13+1(ignored)
+data_root: "/path/to/sensat-urban/"
+
+# model config
+base_channels: 48
+img_backbone: "resnet101"
+imagenet_pretrained: true
+
+# cehckpoint model
+training_folder: "/path/to/PMF/experiments/PMF-sensat/log_xxxxxxx"
+pretrained_model: "best_last_model.pth"
+
+img_size: [320, 448, 576]
+n_samples_split: 400
+downscale: 16
+
+feature_mean: [27.47, 26.90, 27.22, 0.63, 0.81, 0, 0, 0]
+feature_std: [18.43, 18.00, 18.21, 0.40, 0.39, 255.0, 255.0, 255.0]
+
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0
+
+  tta:
+    use: false

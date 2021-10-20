@@ -1,0 +1,99 @@
+# common config
+save_path: "../../experiments/PMF-nuScenes/"
+seed: 1
+gpu: "0,1,2,3,4,5,6,7"
+print_frequency: 2
+n_threads: 4
+experiment_id: "baseline_timestamp"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 50
+batch_size: [3, 3]
+lr: 0.001
+lr_decay: 0.99
+warmup_epochs: 1
+momentum: 0.9
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "nuScenes"
+nclasses: 17 # 16+1(ignored)
+data_root: "/path/to/nuscenes/"
+
+base_channels: 32
+img_backbone: "resnet34"
+imagenet_pretrained: true
+
+lambda: 1.0 # weight of lovasz-softmax loss
+gamma: 0.5 # weight of perception-aware loss
+tau: 0.7 # confidence threshold
+
+# cehckpoint model
+checkpoint: null
+pretrained_model: null 
+
+### data augmentation config ---------------------
+augmentation:
+  # flip
+  p_flipx: 0.
+  p_flipy: 0.5
+
+  # translation
+  p_transx: 0.5
+  trans_xmin: -5
+  trans_xmax: 5
+  p_transy: 0.5
+  trans_ymin: -3
+  trans_ymax: 3
+  p_transz: 0.5
+  trans_zmin: -1
+  trans_zmax: 0.
+
+  # rotation
+  p_rot_roll: 0.5
+  rot_rollmin: -5
+  rot_rollmax: 5
+  p_rot_pitch: 0.5
+  rot_pitchmin: -5
+  rot_pitchmax: 5
+  p_rot_yaw: 0.5
+  rot_yawmin: 5
+  rot_yawmax: -5
+
+  # img jitter
+  img_jitter: [0.4, 0.4, 0.4]
+
+sensor:
+  name: "HDL64"
+  type: "perception-aware"
+  proj_h: 896
+  proj_w: 1600 
+  proj_ht: 512 
+  proj_wt: 640 
+  h_pad: 0
+  w_pad: 0
+
+  img_mean:
+    - 16.51
+    - 0.10
+    - -0.21
+    - -0.21
+    - 21.18
+  img_stds:
+    - 14.16
+    - 14.35
+    - 16.09
+    - 2.34
+    - 22.45 
+
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0
