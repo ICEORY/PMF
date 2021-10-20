@@ -10,6 +10,10 @@ In this work, we aim to explore an effective multi-sensor (LiDAR and RGB camera)
 
 ## Experimental Results
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/perception-aware-multi-sensor-fusion-for-3d/lidar-semantic-segmentation-on-nuscenes)](https://paperswithcode.com/sota/lidar-semantic-segmentation-on-nuscenes?p=perception-aware-multi-sensor-fusion-for-3d)
+
+[Leader board of SensatUrban@ICCV2021](https://competitions.codalab.org/competitions/31519#results)
+
 ![image-20211013144333265](assets/image-20211013144333265.png)
 
 ## More Results
@@ -122,7 +126,7 @@ python infer.py config_server_kitti.yaml
 		|--- pred/ 
 ```
 
-## Reference
+## Citation
 
 ```
 @InProceedings{Zhuang_2021_ICCV,
