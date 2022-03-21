@@ -13,7 +13,7 @@ val_only: false
 has_label: true
 is_debug: false
 n_epochs: 50
-batch_size: [2, 4] # 0-train-batch_size, 1-validate-batch_size
+batch_size: [1, 4] # 0-train-batch_size(2 for default), 1-validate-batch_size
 lr: 0.001
 warmup_epochs: 1
 momentum: 0.9
