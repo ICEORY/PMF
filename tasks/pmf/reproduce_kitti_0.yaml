@@ -1,0 +1,101 @@
+# common config
+save_path: "../../experiments/PMF-SemanticKitti/"
+seed: 1
+gpu: "0"
+distributed: false # whether use distrbuted GPU
+rank: null # rank of distributed thread, equal to 0 when multi gpu
+print_frequency: 2
+n_threads: 4
+experiment_id: "baseline_reproduce"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 50
+batch_size: [2, 4] # 0-train-batch_size, 1-validate-batch_size
+lr: 0.001
+warmup_epochs: 1
+momentum: 0.9
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "SemanticKitti"
+nclasses: 20 # 19+1(ignored)
+data_root: "E://Labs//DataSet//SemanticKITTI//dataset//sequences//"
+
+base_channels: 32
+img_backbone: "resnet34"
+imagenet_pretrained: true
+
+lambda: 1.0 # weight of lovasz-softmax loss
+gamma: 0.5 # weight of perception-aware loss
+tau: 0.7 # confidence threshold
+
+# cehckpoint model
+checkpoint: null
+pretrained_model: null 
+
+### data augmentation config ---------------------
+augmentation:
+  # flip
+  p_flipx: 0.
+  p_flipy: 0.5
+
+  # translation
+  p_transx: 0.5
+  trans_xmin: -5
+  trans_xmax: 5
+  p_transy: 0.5
+  trans_ymin: -3
+  trans_ymax: 3
+  p_transz: 0.5
+  trans_zmin: -1
+  trans_zmax: 0.
+
+  # rotation
+  p_rot_roll: 0.5
+  rot_rollmin: -5
+  rot_rollmax: 5
+  p_rot_pitch: 0.5
+  rot_pitchmin: -5
+  rot_pitchmax: 5
+  p_rot_yaw: 0.5
+  rot_yawmin: 5
+  rot_yawmax: -5
+
+  # img jitter
+  img_jitter: [0.4, 0.4, 0.4]
+
+sensor:
+  name: "HDL64"
+  type: "perception-aware"
+  # crop size of validation samples
+  proj_h: 384
+  proj_w: 1232
+  # crop size of training samples
+  proj_ht: 256 
+  proj_wt: 1024 
+  h_pad: 7
+  w_pad: 3
+
+  img_mean:
+    - 12.12
+    - 10.88
+    - 0.23
+    - -1.04
+    - 0.21
+  img_stds:
+    - 12.32
+    - 11.47
+    - 6.91
+    - 0.86
+    - 0.16  
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0

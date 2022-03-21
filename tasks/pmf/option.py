@@ -16,9 +16,9 @@ class Option(object):
         self.save_path = self.config["save_path"] # log path
         self.seed = self.config["seed"] # manually set RNG seed
         self.gpu = self.config["gpu"] # GPU id to use, e.g. "0,1,2,3"
-        self.rank = 0 # rank of distributed thread
-        self.world_size = 1 # 
-        self.distributed = False # 
+        self.distributed = self.config["distributed"] # whether use distrbuted GPU
+        self.rank = self.config["rank"] # rank of distributed thread, equal to 0 when multi gpu
+        self.world_size = 1 #
         self.n_gpus = len(self.gpu.split(",")) # # number of GPUs to use by default
         self.dist_backend = "nccl"
         self.dist_url = "env://"

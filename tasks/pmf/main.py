@@ -14,12 +14,16 @@ class Experiment(object):
         # init gpu
         os.environ["CUDA_VISIBLE_DEVICES"] = self.settings.gpu
         pc_processor.utils.init_distributed_mode(self.settings)
-        torch.distributed.barrier()
+        if self.settings.distributed:
+            torch.distributed.barrier()
 
         # set random seed
         torch.manual_seed(self.settings.seed)
         torch.cuda.manual_seed(self.settings.seed)
-        torch.cuda.set_device(self.settings.gpu)
+        if self.settings.distributed:
+            torch.cuda.set_device(self.settings.gpu)
+        else:
+            torch.cuda.set_device(int(self.settings.gpu))
         torch.backends.cudnn.benchmark = True
 
         # init checkpoint
@@ -139,7 +143,7 @@ class Experiment(object):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Experiment Options")
-    parser.add_argument("config_path", type=str, metavar="config_path",
+    parser.add_argument("--config_path", type=str, metavar="config_path",
                         help="path of config file, type: string")
     parser.add_argument("--id", type=int, metavar="experiment_id", required=False,
                         help="id of experiment", default=0)

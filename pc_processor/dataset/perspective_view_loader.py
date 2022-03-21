@@ -86,6 +86,10 @@ class PerspectiveViewLoader(Dataset):
 
         image = np.array(image)
         seq_id, _ = self.dataset.parsePathInfoByIndex(index)
+
+        # fix seq_id error
+        seq_id = seq_id[-2:]
+
         mapped_pointcloud, keep_mask = self.dataset.mapLidar2Camera(
             seq_id, pointcloud[:, :3], image.shape[1], image.shape[0])
 
