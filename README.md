@@ -8,6 +8,14 @@
 
 ![image-20211013141408045](assets/image-20211013141408045.png)
 
+## 更新
+
+我们对PMF进行了拓展，进一步提升该方法的效率和精度，同时提供了更多的分析结果。未来我们将公开相关的预训练模型以及代码。(如图为EPMF-ResNet34结果)
+
+![image-20240218162734227](./assets/image-20240218162734227.png)
+
+
+
 ## 主要实验结果
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/perception-aware-multi-sensor-fusion-for-3d/lidar-semantic-segmentation-on-nuscenes)](https://paperswithcode.com/sota/lidar-semantic-segmentation-on-nuscenes?p=perception-aware-multi-sensor-fusion-for-3d)

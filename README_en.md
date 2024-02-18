@@ -10,6 +10,12 @@ In this work, we aim to explore an effective multi-sensor (LiDAR and RGB camera)
 
 ![image-20211013141408045](assets/image-20211013141408045.png)
 
+## News!
+
+We improve the efficiency and effectiveness of PMF, and provide more analysis results. We will release the pretrained models and updated code. （We show the performance of EPMF-ResNet34 below.）
+
+ ![image-20240218162734227](./assets/image-20240218162734227.png)
+
 ## Experimental Results
 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/perception-aware-multi-sensor-fusion-for-3d/lidar-semantic-segmentation-on-nuscenes)](https://paperswithcode.com/sota/lidar-semantic-segmentation-on-nuscenes?p=perception-aware-multi-sensor-fusion-for-3d)
