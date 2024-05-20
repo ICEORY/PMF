@@ -134,6 +134,16 @@ python infer.py config_server_kitti.yaml
 		|--- pred/ 
 ```
 
+
+
+### Pretrained Models
+
+- [SemanticKITTI-PMF-ResNet34](https://drive.google.com/drive/folders/122Wu2QTvYfPng96BYTkIEGX64Uck5sfK?usp=drive_link)
+
+- coming soon...
+
+  
+
 ## Citation
 
 ```

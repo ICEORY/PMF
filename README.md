@@ -134,6 +134,14 @@ python infer.py config_server_kitti.yaml
 		|--- pred/ 用于提交评估的文件
 ```
 
+### 预训练模型
+
+- [SemanticKITTI-PMF-ResNet34](https://drive.google.com/drive/folders/122Wu2QTvYfPng96BYTkIEGX64Uck5sfK?usp=drive_link)
+- 未完待续
+
+
+
+
 ## 引用
 
 ```
