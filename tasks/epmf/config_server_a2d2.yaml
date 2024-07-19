@@ -1,0 +1,70 @@
+# common config
+save_path: "../../experiments/EPMF-a2d2/"
+seed: 1
+gpu: "0,1,2,3"
+print_frequency: 2
+n_threads: 4
+experiment_id: "TAG-timestamp"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 150
+batch_size: [6, 10]
+lr: 0.001
+warmup_epochs: 1
+momentum: 0.9
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "a2d2"
+nclasses: 39 # 38+1(ignored)
+data_root: "/mnt/cephfs/dataset/pointclouds/a2d2/camera_lidar_semantic/"
+
+net_type: "EPMFNet" # EPMFNet
+base_channels: 32
+img_backbone: "resnet34" # resnet34 | conformer1k | conformer21k
+imagenet_pretrained: true
+
+use_mtloss: true
+lambda: 1.0 # weight of lovasz-softmax loss
+gamma: 0.5 # weight of perception-aware loss
+tau: 0.7 # confidence threshold
+
+# cehckpoint model
+checkpoint: null
+pretrained_model: null 
+
+cls_freq:  [0, 16493335, 816405, 885394, 4108664, 166147, 204550, 1244679,
+          544542, 29710, 3, 5071363, 1628128, 2176745, 932520, 5349,
+          3017480, 161433, 1665843, 2623735, 948779, 4182, 4528622, 436451,
+          6059153, 9990, 1138186, 77369540, 2153461, 21495815, 8634634, 655730,
+          1394185, 1699689, 84088276, 2723643, 63701326, 9046, 45]
+
+
+### data augmentation config ---------------------
+PVconfig: 
+  name: "Perspective View Projection"
+  img_jitter : [ 0.4, 0.4, 0.4 ]
+  # size of validation/test samples
+  proj_h: 480
+  proj_w: 1280
+
+  # size of training samples
+  proj_ht: 320
+  proj_wt: 960
+
+  num_views: 1
+
+  pcd_mean: [17.95, 16.17, -0.17, 1.23, 18.49]  # all: [18.15, 16.48, -0.31, 0.96, 17.90]
+  pcd_stds: [24.00, 23.55, -8.06, 3.96, 21.45]   # all: [22.41, 21.96, 7.87, 3.81, 21.53]
+
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0

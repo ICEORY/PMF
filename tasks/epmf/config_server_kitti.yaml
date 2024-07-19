@@ -1,0 +1,66 @@
+# common config
+save_path: "../../experiments/EPMF-SemanticKitti/"
+seed: 1
+gpu: "0,1,2,3"
+print_frequency: 2
+n_threads: 4
+experiment_id: "TAG-timestamp"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 50
+batch_size: [2, 4]
+lr: 0.001
+warmup_epochs: 1
+momentum: 0.9
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "SemanticKitti"
+nclasses: 20 # 19+1(ignored)
+data_root: "/path/to/dataset/semantickitti-fov/sequences/"
+
+net_type: "EPMFNet" # EPMFNet
+base_channels: 32
+img_backbone: "resnet34" # resnet34 | resnet50
+imagenet_pretrained: true
+
+use_mtloss: true 
+lambda: 1 # weight of lovasz-softmax loss
+gamma: 0.5 # weight of perception-aware loss
+tau: 0.7 # confidence threshold
+
+
+# cehckpoint model
+checkpoint: null
+pretrained_model: null
+
+cls_freq: [0.0000e+00, 2.0249e+07, 4.9074e+04, 1.8646e+05, 9.5816e+05, 1.0277e+06,
+      1.6523e+05, 8.1118e+04, 8.0049e+04, 1.0812e+08, 4.6003e+06, 4.5098e+07,
+      1.2188e+06, 3.4767e+07, 2.5586e+07, 9.0230e+07, 2.5993e+06, 2.4159e+07,
+      1.3285e+06, 2.9594e+05]
+### data augmentation config ---------------------
+PVconfig: 
+  name: "Perspective View Projection"
+  img_jitter : [ 0.4, 0.4, 0.4 ]
+  # size of validation/test samples
+  proj_h: 320 
+  proj_w: 1280
+
+  # size of training samples
+  proj_ht: 320
+  proj_wt: 1280
+  
+  pcd_mean: [12.12, 10.88, 0.23, -1.04, 0.21]
+  pcd_stds: [12.32, 11.47, 6.91, 0.86, 0.16] 
+
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0

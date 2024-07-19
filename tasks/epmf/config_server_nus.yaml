@@ -1,0 +1,64 @@
+# common config
+save_path: "../../experiments/EPMF-nuScenes/"
+seed: 1
+gpu: "0,1,2,3"
+print_frequency: 2
+n_threads: 8
+experiment_id: "TAG-timestamp"
+
+# data conifg
+val_only: false
+has_label: true
+is_debug: false
+n_epochs: 150 # 50 would be fast
+batch_size: [6, 10]
+lr: 0.001
+warmup_epochs: 1
+momentum: 0.9
+weight_decay: 0.00001
+val_frequency: 1
+
+dataset: "nuScenes"
+nclasses: 17 # 16+1(ignored)
+data_root: "/path/to/dataset/nuscenes"
+
+net_type: "EPMFNet" # EPMFNet
+base_channels: 32
+img_backbone: "resnet34" # resnet34 | resnet50
+imagenet_pretrained: true
+
+use_mtloss: true
+lambda: 1.0 # weight of lovasz-softmax loss
+gamma: 0.5 # weight of perception-aware loss
+tau: 0.7 # confidence threshold
+
+# cehckpoint model
+checkpoint: null
+pretrained_model: null
+
+cls_freq: [0.0000e+00, 8.0144e+06, 1.2446e+05, 3.8217e+06, 3.2631e+07, 1.4445e+06,
+    3.4920e+05, 2.0569e+06, 6.4362e+05, 4.6593e+06, 1.2923e+07, 2.7573e+08,
+    7.0044e+06, 6.2317e+07, 6.2030e+07, 1.6413e+08, 1.1128e+08]
+### data augmentation config ---------------------
+PVconfig: 
+  name: "Perspective View Projection"
+  img_jitter : [ 0.4, 0.4, 0.4]
+  # size of validation/test samples
+  proj_h: 640 
+  proj_w: 1280
+
+  # size of training samples (more efficient)
+  proj_ht: 320
+  proj_wt: 1088
+
+  pcd_mean: [12.87, 0.01, 0.44, 11.97, 19.07]
+  pcd_stds: [13.21, 6.05, 1.96, 12.50, 21.23]
+
+post:
+  KNN:
+    use: false # This parameter default is false
+    params:
+      knn: 5
+      search: 5
+      sigma: 1.0
+      cutoff: 1.0

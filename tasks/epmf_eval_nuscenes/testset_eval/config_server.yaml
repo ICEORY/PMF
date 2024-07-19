@@ -1,0 +1,13 @@
+# common config
+save_path: "../../../experiments/nuScenes-Test"
+experiment_id: "TAG_timestamp"
+
+# data conifg
+is_debug: false
+dataset: "nuScenes"
+data_root: "/path/to/dataset/nuscenes"
+n_classes: 17
+has_label: false
+
+# cehckpoint model
+pred_folder: "/path/to/the/eval/result/"

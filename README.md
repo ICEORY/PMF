@@ -153,6 +153,14 @@ python infer.py config_server_kitti.yaml
     year      = {2021},
     pages     = {16280-16290}
 }
+
+@article{tan2024epmf,
+  title={EPMF: Efficient Perception-Aware Multi-Sensor Fusion for 3D Semantic Segmentation},
+  author={Tan, Mingkui and Zhuang, Zhuangwei and Chen, Sitao and Li, Rong and Jia, Kui and Wang, Qicheng and Li, Yuanqing},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024},
+  publisher={IEEE}
+}
 ```
 
 

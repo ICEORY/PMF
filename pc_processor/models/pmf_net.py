@@ -78,9 +78,9 @@ class ResNet(nn.Module):
         self.layer3 = net.layer3
         self.layer4 = net.layer4
         # dropout
-        self.dropout = nn.Dropout(p=dropout_rate)
+        self.dropout = nn.Dropout2d(p=dropout_rate)
 
-    def forward(self, x, img_feature=[]):
+    def forward(self, x):
         # pad input to be divisible by 16 = 2 ** 4
         h, w = x.shape[2], x.shape[3]
         # check input size

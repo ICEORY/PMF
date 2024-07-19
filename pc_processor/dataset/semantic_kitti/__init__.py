@@ -1,1 +1,1 @@
-from .parser import SemanticKitti, SemanticKittiPrediction, SemanticKittiRGB
+from .parser import SemanticKitti
