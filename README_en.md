@@ -138,9 +138,10 @@ python infer.py config_server_kitti.yaml
 
 ### Pretrained Models
 
-- [SemanticKITTI-PMF-ResNet34](https://drive.google.com/drive/folders/122Wu2QTvYfPng96BYTkIEGX64Uck5sfK?usp=drive_link)
+- [SemanticKITTI-PMF-ResNet34](https://drive.google.com/file/d/1-dgvl1mlweasZNCQXw6WPR6OF64hTIuU/view?usp=drive_link)
 
-- coming soon...
+- [nuScenes-EPMF-ResNet34](https://drive.google.com/file/d/19hgcF91q3rEXyURGev0zLJ50c19b_WSF/view?usp=sharing)
+
 
   
 

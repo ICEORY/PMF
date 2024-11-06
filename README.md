@@ -136,11 +136,12 @@ python infer.py config_server_kitti.yaml
 
 ### 预训练模型
 
-- [SemanticKITTI-PMF-ResNet34](https://drive.google.com/drive/folders/122Wu2QTvYfPng96BYTkIEGX64Uck5sfK?usp=drive_link)
-- 未完待续
+- [SemanticKITTI-PMF-ResNet34](https://drive.google.com/file/d/1-dgvl1mlweasZNCQXw6WPR6OF64hTIuU/view?usp=drive_link)
 
+- [nuScenes-EPMF-ResNet34](https://drive.google.com/file/d/19hgcF91q3rEXyURGev0zLJ50c19b_WSF/view?usp=sharing)
 
-
+### 下一个工作
+- 后续工作请关注REO，基于全局交叉注意力机制的传感器融合方式，在输入层面摒弃了传感器标定信息，让模型学习点云与图像以及到GT坐标系下的空间关系，一方面可以对于车载传感器抖动更加鲁棒，一方面在速度也有明显提升，openoccupancy-nuscenes数据集上±51.2米范围0.2栅格大小，语义占据预测推理耗时70多毫秒（不采用TensorRT加速，3090单卡单帧）
 
 ## 引用
 
