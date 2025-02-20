@@ -65,6 +65,17 @@ Note: please modify the **path** in the code.
 
 
 
+### Prepare Environment
+
+```
+conda create -n pmf python=3.8
+conda activate pmf
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
+pip install -r requirements.txt
+```
+
+
+
 ### Training
 
 #### Code for training
@@ -143,7 +154,7 @@ python infer.py config_server_kitti.yaml
 - [nuScenes-EPMF-ResNet34](https://drive.google.com/file/d/19hgcF91q3rEXyURGev0zLJ50c19b_WSF/view?usp=sharing)
 
 
-  
+
 
 ## Citation
 

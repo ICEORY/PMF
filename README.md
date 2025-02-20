@@ -65,6 +65,19 @@
 
 
 
+### 环境配置
+
+- PMF/EPMF的环境配置相对简单，主要依赖 pytorch1.13
+
+```
+conda create -n pmf python=3.8
+conda activate pmf
+pip install torch==1.13.1+cu116 torchvision==0.14.1+cu116 --extra-index-url https://download.pytorch.org/whl/cu116
+pip install -r requirements.txt
+```
+
+
+
 ### 模型训练
 
 #### 训练任务代码目录结构
